@@ -49,8 +49,8 @@
 </div>
 
 <!-- Search result modal-->
-<div class="modal fade" id="searchPatientModal" tabindex="-1" role="dialog" aria-labelledby="searchPatientModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="searchPatientModal" role="dialog" aria-labelledby="searchPatientModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" style="border-radius: 8px; border: none; box-shadow: 0 15px 35px rgba(0,0,0,0.2);">
       
       <div class="modal-header" style="background-color: #092f31; color: white; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom: none; padding: 20px 25px;">
@@ -294,5 +294,19 @@
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
    <script src="js/vendor.min.js"></script>
 <script src="js/scripts.min.js"></script>
+<script>
+  $(document).ready(function() {
+  
+    $('#searchPatientModal').on('show.bs.modal', function () {
+ 
+      $('.site-backdrop').trigger('click');
+    });
+    $('#searchPatientModal').on('shown.bs.modal', function () {
+   
+      $('#hospNumber').trigger('focus');
+    });
+  });
+</script>
+    
   </body>
 </html>
